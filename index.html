@@ -213,8 +213,7 @@
                 return false;
             }
             input.classList.remove('is-invalid');
-            // ...call your search logic or redirect here...
-            // Example: window.location.href = 'searchResults.html?query=' + encodeURIComponent(input.value.trim());
+            window.location.href = 'searchResults.html?query=' + encodeURIComponent(input.value.trim());
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
