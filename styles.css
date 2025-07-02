@@ -107,8 +107,10 @@ footer {
     rgba(0, 0, 0, 0.5)
   ); /* Dark gradient for footer */
   color: white; /* Ensure text is white for contrast */
-  position: relative;
+  position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
   padding: 10px 0; /* Reduced padding for a smaller footer */
+  z-index: 100;
 }
