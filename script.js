@@ -146,22 +146,30 @@ function changePage(direction) {
 }
 
 function searchEvent() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const resultsDiv = document.getElementById('searchResults');
-    resultsDiv.innerHTML = ''; // Clear previous results
-
-    const filteredEvents = events.filter(event => event.id.includes(input));
-
-    if (filteredEvents.length > 0) {
-        filteredEvents.forEach(event => {
-            const div = document.createElement('div');
-            div.textContent = `Event ID: ${event.id} - ${event.description}`;
-            resultsDiv.appendChild(div);
-        });
-    } else {
-        resultsDiv.textContent = 'No results found.';
+    const input = document.getElementById('searchInput');
+    const value = input.value.trim();
+    if (!value) {
+        input.focus();
+        input.classList.add('is-invalid');
+        return false;
     }
+    input.classList.remove('is-invalid');
+    window.location.href = 'searchResults.html?query=' + encodeURIComponent(value);
 }
+
+// Initial display
+displayTable(currentPage);
+        resultsDiv.textContent = 'No results found.';
+    
+
+function storeSearchInput() {
+    const searchInput = document.getElementById('searchInput').value;
+    localStorage.setItem('searchQuery', searchInput);
+}
+
+    localStorage.setItem('searchQuery', searchInput);
+
+
 
 // Initial display
 displayTable(currentPage);
