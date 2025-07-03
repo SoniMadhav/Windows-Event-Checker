@@ -21,6 +21,25 @@
             text-align: center;
             letter-spacing: 2px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header button {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 7px 18px;
+            font-size: 1rem;
+            cursor: pointer;
         }
 
         main {
@@ -114,6 +133,10 @@
 <body>
     <header>
         <h1>Search Results</h1>
+        <button onclick="window.location.href='index.html'"
+            style="position: absolute; right: 30px; top: 50%; transform: translateY(-50%); background: linear-gradient(90deg, #18e75d 0%, #1eac92 100%); color: rgb(0, 0, 0); border: none; border-radius: 5px; padding: 7px 18px; font-size: 1rem; cursor: pointer;">
+            &#8592; Home
+        </button>
     </header>
 
     <main class="container mt-4">
@@ -683,10 +706,7 @@
                 id: '7033',
                 example: 'A service stops unexpectedly.',
                 description: 'A service has been stopped unexpectedly. Indicates that a service has been stopped unexpectedly.',
-                explainHinglish: 'Agar koiAgar koi service kisi specific user account ke saath configure hoti hai, toh yeh event aata hai.',
-                example: 'A service is configured with a specific user account.',
-                description: 'A service has been configured with a specific user account. Indicates that a service has been configured with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath configure hoti hai, toh yeh event aata hai.'
+                explainHinglish: 'Agar koi service bina kisi wajah ke band ho jaati hai, toh yeh event aata hai.'
             },
             {
                 id: '7047',
