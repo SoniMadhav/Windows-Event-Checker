@@ -19,25 +19,94 @@
             color: white;
             padding: 10px 0;
             text-align: center;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         main {
-            margin-top: 20px;
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-align: center;
-            padding: 5px 0;
+            margin-top: 30px;
+            margin-bottom: 80px;
         }
 
         .result {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #dddddd;
-            border-radius: 5px;
-            background-color: #ffffff;
+            margin: 20px 0;
+            padding: 24px 30px;
+            border-radius: 16px;
+            background: linear-gradient(120deg, #f8fff8 70%, #e3ffe6 100%);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            border: 1px solid #cdeccd;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .result:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(0, 77, 0, 0.12);
+            border-color: #7ad67a;
+        }
+
+        .result h4 {
+            color: #007b3c;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .result h4::before {
+            content: "\f06a";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #00b894;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .result p {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .result strong {
+            color: #004d00;
+        }
+
+        .result .explain {
+            background: #eaffea;
+            border-left: 4px solid #00b894;
+            padding: 8px 14px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-style: italic;
+            color: #2d5c2d;
+        }
+
+        #searchResults {
+            background: none;
+            border: none;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .no-results {
+            color: #c0392b;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .result {
+                padding: 14px 8px;
+            }
+
+            main {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -48,7 +117,9 @@
     </header>
 
     <main class="container mt-4">
-        <div id="searchResults"></div>
+        <div style="display: flex; justify-content: center;">
+            <div id="searchResults"></div>
+        </div>
     </main>
 
     <footer>
@@ -385,8 +456,6 @@
             {
                 id: '6009',
                 example: 'Windows product information is detected at boot time.',
-                description: 'Windows product name, version, build number, service pack number, and OS type detected at boot time. Indicates system information at startup.',
-                explainHinglish: 'Jab Windows boot hota hai, toh yeh information detect hoti hai. Isse pata chalta hai ki system kaunsa version aur build use kar raha hai.'
             },
             {
                 id: '6001',
@@ -614,76 +683,7 @@
                 id: '7033',
                 example: 'A service stops unexpectedly.',
                 description: 'A service has been stopped unexpectedly. Indicates that a service has been stopped unexpectedly.',
-                explainHinglish: 'Agar koi service bina kisi wajah ke band ho jaati hai, toh yeh event aata hai. Ispar nazar rakhni chahiye.'
-            },
-            {
-                id: '7034',
-                example: 'A service is paused unexpectedly.',
-                description: 'A service has been paused unexpectedly. Indicates that a service has been paused unexpectedly.',
-                explainHinglish: 'Agar koi service bina kisi wajah ke pause ho jaati hai, toh yeh event trigger hota hai.'
-            },
-            {
-                id: '7035',
-                example: 'A service is resumed unexpectedly.',
-                description: 'A service has been resumed unexpectedly. Indicates that a service has been resumed unexpectedly.',
-                explainHinglish: 'Agar koi service bina kisi wajah ke resume ho jaati hai, toh yeh event aata hai. Ispar nazar rakhni chahiye.'
-            },
-            {
-                id: '7036',
-                example: 'A service changes state.',
-                description: 'A service has entered the running or stopped state. Indicates that a service has changed state.',
-                explainHinglish: 'Agar koi service apna state badalta hai, jaise running se stopped ya vice versa, toh yeh event trigger hota hai.'
-            },
-            {
-                id: '7037',
-                example: 'A service is configured with a specific user account.',
-                description: 'A service has been configured with a specific user account. Indicates that a service has been configured with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath configure hoti hai, toh yeh event aata hai.'
-            },
-            {
-                id: '7038',
-                example: 'A service is started with a specific user account.',
-                description: 'A service has been started with a specific user account. Indicates that a service has been started with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath start hoti hai, toh yeh event trigger hota hai.'
-            },
-            {
-                id: '7039',
-                example: 'A service is stopped with a specific user account.',
-                description: 'A service has been stopped with a specific user account. Indicates that a service has been stopped with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath band hoti hai, toh yeh event aata hai.'
-            },
-            {
-                id: '7040',
-                example: 'A service is paused with a specific user account.',
-                description: 'A service has been paused with a specific user account. Indicates that a service has been paused with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath pause hoti hai, toh yeh event trigger hota hai.'
-            },
-            {
-                id: '7041',
-                example: 'A service is resumed with a specific user account.',
-                description: 'A service has been resumed with a specific user account. Indicates that a service has been resumed with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath resume hoti hai, toh yeh event aata hai.'
-            },
-            {
-                id: '7042',
-                example: 'A service is deleted with a specific user account.',
-                description: 'A service has been deleted with a specific user account. Indicates that a service has been deleted with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath delete hoti hai, toh yeh event trigger hota hai.'
-            },
-            {
-                id: '7043',
-                example: 'A service is created with a specific user account.',
-                description: 'A service has been created with a specific user account. Indicates that a service has been created with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath create hoti hai, toh yeh event aata hai.'
-            },
-            {
-                id: '7044',
-                example: 'A service is modified with a specific user account.',
-                description: 'A service has been modified with a specific user account. Indicates that a service has been modified with a specific user account.',
-                explainHinglish: 'Agar koi service kisi specific user account ke saath modify hoti hai, toh yeh event trigger hota hai.'
-            },
-            {
-                id: '7046',
+                explainHinglish: 'Agar koiAgar koi service kisi specific user account ke saath configure hoti hai, toh yeh event aata hai.',
                 example: 'A service is configured with a specific user account.',
                 description: 'A service has been configured with a specific user account. Indicates that a service has been configured with a specific user account.',
                 explainHinglish: 'Agar koi service kisi specific user account ke saath configure hoti hai, toh yeh event aata hai.'
